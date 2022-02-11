@@ -53,17 +53,17 @@ koalaRouter.put('/:id', (req, res) => {
   
     let sqlText = '';
   
-    if(req.body === true) {
+    if(req.body.boolean === 'true') {
      sqlText = `
       UPDATE "koala" 
-      SET "ready_to_transfer" = false
+      SET "ready_to_transfer" = 'true'
       WHERE "id" = $1;
     `
     }
-    else if (req.body === false) {
+    else if (req.body.boolean === 'false') {
      sqlText = `
      UPDATE "koala" 
-     SET "ready_to_transfer" = true
+     SET "ready_to_transfer" = 'false'
      WHERE "id" = $1;
     ` 
     } 
